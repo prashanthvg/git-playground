@@ -1,2 +1,1 @@
-# git-playground
-Testing ground 
+Hi, Test Area!
