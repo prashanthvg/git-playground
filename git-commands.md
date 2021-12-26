@@ -16,6 +16,9 @@
   - [Unstaging files](#Unstaging-files) 
   - [Discarding local changes](#Discarding-local-changes)
   - [Restoring an earlier version of a file](#Restoring-an-earlier-version-of-a-file)
+- [Branching and Merging](#Branching-and-Merging)
+  - [Managing branches](#managing-branches)
+  - [Merging](#Merging)
 
 ## git configuration
 
@@ -24,13 +27,13 @@
 - **To specify your name**
 
 ```
-git config --global user.name "$NAME"
+git config --global user.name <name>
 ```
 
 - **To specify your email**
 
 ```
-git config --global user.email "$email@domain.com"
+git config --global user.email "email@domain.com"
 ```
 
 - **To configure your default editor**
@@ -41,9 +44,17 @@ git config --global core.editor "code --wait"
 
 - **To handle your EOL** 
 
-```
-git config --global core.autocrlf input
-```
+  - For linux and mocOS 
+
+    ```
+    git config --global core.autocrlf input
+    ```
+    
+  - For windows
+    
+    ```
+    git config --global core.autocrlf true
+    ```
 
 - If you want to have prune executed with every fetch operation, you can configure Git accordingly
 
@@ -127,11 +138,29 @@ git init
 
 | Command                                  | Description                               |
 | ---                                      | ---                                       |
-| `git restore --source=HEAD~2 script.js` | ***Restores script.js back from HEAD~2*** |
+| `git restore --source=HEAD~2 script.js`  | ***Restores script.js back from HEAD~2*** |
 
 
+## Branching and Merging
 
+### Managing branches
 
+| Command                           | Description                                |
+| ---                               | ---                                        |
+| `git branch -a`                   | ***List all branches***                    |
+| `git ls-remote`                   | ***List remote branches***                 |
+| `git branch <branch>`             | ***Creates a new branch***                 |
+| `git checkout <branch>`           | ***Switches to the specified branch***     |
+| `git switch -C <branch>`          | ***Create a branch and switches***         |
+| `git switch <branch>`             | ***Switches to specified branch***         |
+| `git branch -D <branch>`          | ***Deletes specified branch locally***     |
+| `git push -d origin <branch>`     | ***Removes specified branch from origin*** |
 
+### Merging
+
+| Command                          | Description                                               |
+| ---                              | ---                                                       |
+| `git merge <branch>`             | ***merges the specified branch into the current branch*** |
+| `git merge --no-ff <branch>`     | ***Creates a merge commit even if FF is possible***       |
 
 
